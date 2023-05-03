@@ -170,7 +170,7 @@ font-weight: 900;
   margin-right: auto;
   margin-left: auto;
 } 
-/* @media (min-width: 576px) {
+@media (min-width: 576px) {
 .container {
     width: 540px;
 }
@@ -188,7 +188,7 @@ font-weight: 900;
 @media (min-width: 1200px) {
 .container {
    width: 1140px;
-} */
+}
 }
 #htmltoimage{
     margin:auto;
@@ -199,13 +199,13 @@ font-weight: 100;
 }
 .wrapper{
 background: var(--white);
-width: 800px;
+min-width: 800px;
 padding: 30px;
 }
 
 .invoice_wrapper{
 border: 3px solid var(--primary);
-width: 800px;
+min-width: 800px;
 max-width: 100%;
 }
 
