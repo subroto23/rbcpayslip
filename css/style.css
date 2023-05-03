@@ -199,13 +199,13 @@ font-weight: 100;
 }
 .wrapper{
 background: var(--white);
-min-width: 1000px;
+width: 800px;
 padding: 30px;
 }
 
 .invoice_wrapper{
 border: 3px solid var(--primary);
-min-width: 1000px;
+width: 800px;
 max-width: 100%;
 }
 
