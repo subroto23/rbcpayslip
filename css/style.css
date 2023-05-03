@@ -1,0 +1,374 @@
+body{
+    background-color: red;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Anek Bangla';font-size: 22px;
+    
+}
+.admin-section{
+    background-color:cornflowerblue;
+    position: relative;
+    padding:50px 0px;
+}
+#adminPage,.moneyreceit-section{
+    padding:50px 10%;
+}
+.header-admin h1{
+    font-size: 60px;
+    font-weight: 800;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-bottom: 50px;
+    color:darkblue;
+    text-shadow: 1px 2px #ffffff;
+}
+label{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    color:black;
+    margin-top: 10px;
+}
+select{
+    width:100%;
+    padding:10px 30px;
+    margin:10px 0px;
+    position: relative;
+    font-size: 30px;
+}
+option{
+    background-color:cornflowerblue;
+    padding:20px 0px;
+    font-size: 20px;
+}
+#amountOfmoney , #totalTk,#amountOfmoneyOther{
+    padding:10px 30px;
+    width:100%;
+    margin:10px 0px;
+}
+option{
+    background-color:cornflowerblue;
+    font-size: 30px;
+}
+textarea {
+    font-size: 30px;
+    vertical-align:middle;
+    border-radius: 10px;
+    text-align: center;
+}
+input{
+    font-size: 30px;
+}
+.buttonPlusminues{
+    display:flex;
+    justify-content:center;
+}
+#buttonPlus,#buttonMinues{
+    margin:5px;
+    background-color:blue;
+    padding:10px 50px;
+    border-radius: 100px;
+    box-shadow: -3px 3px red;
+    font-family: Arial, Helvetica, sans-serif;
+    color:#ffffff;
+    font-weight: bold;
+    display: inline-block;
+}
+#buttonMinues{
+    background-color: red;
+}
+#buttonPlus:hover,#buttonMinues:hover{
+    background-color:white;
+    color:red; 
+}
+.makePic{
+    width:100%;
+    padding:15px 0px;
+    margin:30px 0px 0px;;
+    background-color:blue;
+    font-size:30px;
+    font-weight: bolder;
+    border-radius: 100px;
+    padding:20px;
+    align-items: center;
+    color:#DEF;
+    box-shadow: 3px 3px red, -0.2em 0 .4em rgb(2, 2, 2);
+}
+.makePic:hover{
+    background-color: #DEF;
+    color:red;
+}
+.sourcebuttonaddLabel{
+    margin: 20px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;color: red;
+}
+.monthlydues
+    {
+        display:none;
+    }
+.monthlyvalueBackground{
+    background-color:yellow;
+    padding:0px 5px 2%;
+    display:none;
+}
+.moneyAnountValue,.moneyAnountValues{
+    margin-top:20px;
+}
+.showPujadisplayYearDiv{
+    display: none;
+}
+.durgaPujacada{
+    display:none;
+}
+.kaliPujacada{
+    display:none;
+}
+.yearsdata{
+    display:none;
+}
+.toyearsdata{
+    display:none;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;400;900&display=swap');
+
+:root {
+--primary: #0000ff;
+--secondary: #3d3d3d; 
+--white: #fff;
+}
+
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Lato', sans-serif;
+}
+
+body{
+background: var(--secondary);
+padding: 50px;
+color: var(--secondary);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 14px;
+}
+
+.bold{
+font-weight: 900;
+}
+.container {
+width: 100%;
+padding-right: 15px;
+padding-left: 15px;
+margin-right: auto;
+margin-left: auto;
+} 
+@media (min-width: 576px) {
+.container {
+    width: 540px;
+}
+}
+@media (min-width: 768px) {
+.container {
+    width: 720px;
+}
+}
+@media (min-width: 992px) {
+.container {
+    width: 960px;
+}
+}
+@media (min-width: 1200px) {
+.container {
+    width: 1140px;
+}
+}
+#htmltoimage{
+    margin:auto;
+}
+
+.light{
+font-weight: 100;
+}
+.wrapper{
+background: var(--white);
+max-width: 1000px;
+padding: 30px;
+}
+
+.invoice_wrapper{
+border: 3px solid var(--primary);
+max-width: 1000px;
+max-width: 100%;
+}
+
+.invoice_wrapper .header .logo_invoice_wrap,
+.invoice_wrapper .header .bill_total_wrap{
+display: flex;
+justify-content: space-between;
+padding: 0px 30px 20px;
+}
+
+.invoice_wrapper .header .logo_sec{
+display: flex;
+align-items: center;
+}
+
+.invoice_wrapper .header .logo_sec .title_wrap{
+margin-left: 5px;
+}
+
+.invoice_wrapper .header .logo_sec .title_wrap .title{
+text-transform: uppercase;
+font-size: 18px;
+color: var(--primary);
+}
+
+.invoice_wrapper .header .logo_sec .title_wrap .sub_title{
+font-size: 12px;
+}
+
+.invoice_wrapper .header .invoice_sec,
+.invoice_wrapper .header .bill_total_wrap .total_wrap{
+text-align: right;
+}
+
+.invoice_wrapper .header .invoice_sec .invoice{
+font-size: 28px;
+color: var(--primary);
+}
+
+.invoice_wrapper .header .invoice_sec .invoice_no,
+.invoice_wrapper .header .invoice_sec .date{
+/* display: flex; */
+width: 100%;
+}
+
+.invoice_wrapper .header .invoice_sec .invoice_no span:first-child,
+.invoice_wrapper .header .invoice_sec .date span:first-child{
+width: 70px;
+text-align: left;
+}
+
+.invoice_wrapper .header .invoice_sec .invoice_no span:last-child,
+.invoice_wrapper .header .invoice_sec .date span:last-child{
+width: calc(100% - 70px);
+}
+
+.invoice_wrapper .header .bill_total_wrap .total_wrap .price,
+.invoice_wrapper .header .bill_total_wrap .bill_sec .name{
+color: var(--primary);
+font-size: 20px;
+}
+
+.invoice_wrapper .body .main_table .table_header{
+background: var(--primary);
+}
+
+.invoice_wrapper .body .main_table .table_header .row{
+color: var(--white);
+font-size: 18px;
+border-bottom: 0px;	
+}
+
+.invoice_wrapper .body .main_table .row{
+display: flex;
+border-bottom: 1px solid var(--secondary);
+}
+
+.invoice_wrapper .body .main_table .row .col{
+padding: 10px;
+}
+.invoice_wrapper .body .main_table .row .col_des{width: 30%;}
+.invoice_wrapper .body .main_table .row .col_price{width: 30%; text-align: center;}
+.invoice_wrapper .body .main_table .row .col_total{width: 20%;text-align: center;}
+.invoice_wrapper .body .main_table .row .col_dues{width: 20%;text-align:center;}
+
+.invoice_wrapper .body .paymethod_grandtotal_wrap{
+display: flex;
+justify-content: space-between;
+padding: 5px 0 30px;
+align-items: flex-end;
+}
+
+.invoice_wrapper .body .paymethod_grandtotal_wrap .paymethod_sec{
+padding-left: 30px;
+}
+
+.invoice_wrapper .body .paymethod_grandtotal_wrap .grandtotal_sec{
+width: 40%;
+}
+
+.invoice_wrapper .body .paymethod_grandtotal_wrap .grandtotal_sec p{
+display: flex;
+width: 100%;
+padding-bottom: 5px;
+}
+
+.invoice_wrapper .body .paymethod_grandtotal_wrap .grandtotal_sec p span{
+padding: 0 10px;
+}
+
+.invoice_wrapper .body .paymethod_grandtotal_wrap .grandtotal_sec p span:first-child{
+width: 60%;
+}
+
+.invoice_wrapper .body .paymethod_grandtotal_wrap .grandtotal_sec p span:last-child{
+width: 40%;
+text-align: right;
+}
+
+.invoice_wrapper .body .paymethod_grandtotal_wrap .grandtotal_sec p:last-child span{
+background: var(--primary);
+padding: 10px;
+color: #fff;
+}
+.paidlog{
+padding:10px 80px;
+display:flex;
+justify-content:space-between;
+}
+
+.invoice_wrapper .footer{
+padding: 30px;
+}
+
+.invoice_wrapper .footer > p{
+color: var(--primary);
+text-decoration: underline;
+font-size: 18px;
+padding-bottom: 5px;
+}
+
+.invoice_wrapper .footer .terms .tc{
+font-size: 16px;
+}
+.main_table{
+    width:100%;
+}
+.totalcalculationtk{
+    margin:10px 0px 20px 0px;
+}
+.sendMoneytotal,.duesMoneytotal{
+    border-bottom: 0.6px solid rgb(103, 103, 103);
+    padding:10px 30px 10px 10px;
+}
+.totalTkValue{
+font-family: Arial, Helvetica, sans-serif;
+color:green;
+font-weight: bold;
+font-size: 30px;
+}
+.totaDueslTkValue{
+    font-family: Arial, Helvetica, sans-serif;
+    color:red;
+    font-weight: bold;
+    font-size: 30px;
+}
