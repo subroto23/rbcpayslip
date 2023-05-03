@@ -136,7 +136,7 @@ function downloadimage() {
                              }
                              else if (receivername == "সৌরভ দাস"){
                                 var namereceiver = document.querySelector("#namereceiver").innerHTML = receivername;
-                                imgSrcChange.src = "img/sourov.png";
+                                imgSrcChange.src = "./img/sourov.png";
                              }
 
 //বার্তা সেকশন
@@ -283,7 +283,7 @@ function downloadimage() {
                     if(duesValue > 0)
                     {
                         duesName.innerHTML= "দ্রুত বকেয়া প্রদান করুন";
-                        paidUnpaid.src = "/img/unpaid.png";   
+                        paidUnpaid.src = "./img/unpaid.png";   
                     }
                     else if(duesValue == 0)
                     {
@@ -293,7 +293,7 @@ function downloadimage() {
                     {
                         var otherTKValues =(-1*duesValue);
                         duesName.innerHTML= `অনুদান হিসাবে ${otherTKValues} জমা হয়েছে`;
-                        paidUnpaid.src = "/img/paid.png";   
+                        paidUnpaid.src = "./img/paid.png";   
                     }
                 }
                 document.querySelector("#duesValue").innerHTML = `${duesValue}`;
@@ -310,7 +310,7 @@ function downloadimage() {
                     else if(duesValue > 0){
                         var duesmonNum = duesValue/50;
                         duesName.innerHTML= `মাসিক চাঁদা ${duesmonNum} মাস বকেয়া`;
-                        paidUnpaid.src = "/img/unpaid.png";
+                        paidUnpaid.src = "./img/unpaid.png";
                     }
                 }
                 sendTkCal();
