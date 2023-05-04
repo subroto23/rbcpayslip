@@ -343,11 +343,10 @@ function duesTkCal(){
                     sumvalueduesTk = sumvalueduesTk + columValue;
                 }
             else{
-                sumvalueduesTk = sumvalueduesTk + Number(table.rows[i].cells[3].innerText);
-                paidUnpaid.src = "./img/unpaid.png"; 
+                sumvalueduesTk = sumvalueduesTk + Number(table.rows[i].cells[3].innerText); 
             }
     }
 
     var totalDues = document.querySelector("#totalDues");
-    totalDues.innerHTML = `${sumvalueduesTk} /=`;
+    totalDues.innerHTML = `৳ ${sumvalueduesTk}`;
 }
