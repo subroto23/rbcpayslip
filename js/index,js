@@ -285,7 +285,7 @@ function downloadimage() {
                     duesValue = totalTk - amount;
                     if(duesValue > 0)
                     {
-                        duesName.innerHTML= "দ্রুত বকেয়া প্রদান করুন";
+                        duesName.innerHTML= "দ্রুত মন্দির উন্নায়নের বকেয়া প্রদান করুন";
                         paidUnpaid.src = "./img/unpaid.png";   
                     }
                     else if(duesValue == 0)
@@ -295,7 +295,7 @@ function downloadimage() {
                     else if(duesValue < 0)
                     {
                         var otherTKValues =(-1*duesValue);
-                        duesName.innerHTML= `অনুদান হিসাবে ${otherTKValues} জমা হয়েছে`;
+                        duesName.innerHTML= `মন্দির উন্নায়নের অনুদান হিসাবে ${otherTKValues} টাকা জমা হয়েছে`;
                         paidUnpaid.src = "./img/paid.png";   
                     }
                 }
