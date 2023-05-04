@@ -155,7 +155,8 @@ function downloadimage() {
                         var now = new Date(); var dayNames = new Array("রবিবার","সোমবার","মঙ্গলবার","বুধবার","বৃহস্পতিবার","শুক্রবার","শনিবার"); var monNames = new Array("জানুয়ারি","ফেব্রুয়ারী","মার্চ","এপ্রিল","মে","জুন","জুলাই","আগস্ট","সেপ্টেম্বর","অক্টোবর","নভেম্বর","ডিসেম্বর");
                         datevalue.innerHTML = (`${now.getDate()} , ${monNames[now.getMonth()]} ${now.getFullYear()} , ${dayNames[now.getDay()]}`);
                       
-                        
+                       var opacityValue = document.querySelector("#opacityValue");
+                        opacityValue.style.display="block";
                         downloadimage();
                     }
             
@@ -314,8 +315,6 @@ function downloadimage() {
                         paidUnpaid.src = "./img/unpaid.png";
                     }
                 }
-                var opacityValue = document.querySelector("#opacityValue");
-                opacityValue.style.display="block";
                 sendTkCal();
                 duesTkCal();
         }
