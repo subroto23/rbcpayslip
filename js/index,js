@@ -328,7 +328,7 @@ function sendTkCal(){
         sumvalueSendTk = sumvalueSendTk + Number(table.rows[i].cells[2].innerText);
     }
     var totalSend = document.querySelector("#totalSend");
-    totalSend.innerHTML = `${sumvalueSendTk} /=`;
+    totalSend.innerHTML = `${sumvalueSendTk}`;
 }
 
 
@@ -349,5 +349,5 @@ function duesTkCal(){
     }
 
     var totalDues = document.querySelector("#totalDues");
-    totalDues.innerHTML = `৳ ${sumvalueduesTk}`;
+    totalDues.innerHTML = `${sumvalueduesTk}`;
 }
