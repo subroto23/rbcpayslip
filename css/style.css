@@ -13,6 +13,9 @@ body{
     position: relative;
     padding:50px 0px;
 }
+#opacityValue{
+    display:none;
+}
 #adminPage,.moneyreceit-section{
     padding:50px 10%;
 }
