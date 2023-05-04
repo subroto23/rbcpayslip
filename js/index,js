@@ -291,6 +291,7 @@ function downloadimage() {
                     else if(duesValue == 0)
                     {
                         duesName.innerHTML= "পরিশোধ"; 
+                        paidUnpaid.src = "./img/paid.png";
                     }
                     else if(duesValue < 0)
                     {
