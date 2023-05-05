@@ -5,8 +5,8 @@ body{
     margin:0;
     padding:0;
     box-sizing: border-box;
-    font-family: 'Anek Bangla';font-size: 22px;
-    
+    font-family: 'Anek Bangla';
+    font-size: 16px; 
 }
 .admin-section{
     background-color:cornflowerblue;
@@ -17,19 +17,19 @@ body{
     display:none;
 }
 #adminPage,.moneyreceit-section{
-    padding:50px 10%;
+    padding:10px 5px;
 }
 .header-admin h1{
-    font-size: 60px;
-    font-weight: 800;
+    font-size: 30px;
+    font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     color:darkblue;
     text-shadow: 1px 2px #ffffff;
 }
 label{
-    font-size: 20px;
+    font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bolder;
     color:black;
@@ -37,33 +37,37 @@ label{
 }
 select{
     width:100%;
-    padding:10px 30px;
+    padding:10px 0px;
     margin:10px 0px;
     position: relative;
-    font-size: 30px;
+    font-size: 16px;
+    text-align: center;
 }
 option{
     background-color:cornflowerblue;
     padding:20px 0px;
-    font-size: 20px;
+    font-size: 16px;
+    text-align: center;
 }
 #amountOfmoney , #totalTk,#amountOfmoneyOther{
-    padding:10px 30px;
+    padding:10px 0px;
     width:100%;
     margin:10px 0px;
 }
 option{
     background-color:cornflowerblue;
-    font-size: 30px;
+    font-size: 18x;
+    text-align: center;
 }
 textarea {
-    font-size: 30px;
+    font-size: 16px;
     vertical-align:middle;
     border-radius: 10px;
     text-align: center;
+    margin-top: 10px;
 }
 input{
-    font-size: 30px;
+    font-size: 16px;
 }
 .buttonPlusminues{
     display:flex;
@@ -72,7 +76,7 @@ input{
 #buttonPlus,#buttonMinues{
     margin:5px;
     background-color:blue;
-    padding:10px 5px;
+    padding:10px 0px;
     border-radius: 100px;
     box-shadow: -3px 3px red;
     font-family: Arial, Helvetica, sans-serif;
@@ -80,6 +84,7 @@ input{
     font-weight: bold;
     display: inline-block;
     width:100%;
+    font-size: 16px;
 }
 #buttonMinues{
     background-color: red;
@@ -88,15 +93,17 @@ input{
     background-color:white;
     color:red; 
 }
+.sourcebuttonaddLabel{
+    font-size: 18px;
+}
 .makePic{
     width:100%;
-    padding:15px 0px;
+    padding:10px 0px;
     margin:30px 0px 0px;;
     background-color:blue;
-    font-size:30px;
+    font-size:18px;
     font-weight: bolder;
     border-radius: 100px;
-    padding:20px;
     align-items: center;
     color:#DEF;
     box-shadow: 3px 3px red, -0.2em 0 .4em rgb(2, 2, 2);
