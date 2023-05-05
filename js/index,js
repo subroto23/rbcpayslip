@@ -172,7 +172,11 @@ function downloadimage() {
             }
 
 
-
+//ইনপুট ভ্যালু রিসেট
+            function cleatValue(){
+                totalTk.value = '';
+                amountOfmoney.value = '';
+            }
 //অর্থের উৎসের বিবারণ এবং নতুন রো সৃষ্টির ফাংশন
             function addMorerow(){
                 var itemsData = document.querySelector("#itemsData");
@@ -319,6 +323,7 @@ function downloadimage() {
                 }
                 sendTkCal();
                 duesTkCal();
+                cleatValue()
         }
 //প্রাদানকৃত টাকার হিসাব
 function sendTkCal(){
