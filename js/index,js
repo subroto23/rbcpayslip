@@ -11,7 +11,7 @@ function downloadimage() {
                         
                     });
                 }
-    
+                var adminHide = document.querySelector("#adminHide");
                 var button = document.querySelector("#button");
                 function controlbtn(){
                     var itemsData = document.querySelector("#itemsData");
@@ -159,6 +159,7 @@ function downloadimage() {
                         var opacityValue = document.querySelector("#opacityValue");
                         opacityValue.style.display="block";
                         downloadimage();
+                        adminHide.style.display = "none";
                     }
             
 // নতুন রো সংযোগ
