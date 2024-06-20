@@ -119,6 +119,14 @@ function downloadimage() {
                             {
                                 designation.innerHTML = "কার্যনির্বাহী সদস্য </br> রূপসী বাংলা ক্লাব </br> কাদিরদী,বোয়ালমারী,ফরিদপুর"; 
                             }
+                            else if(OptionValue == "সীমান্ত সরকার")
+                            {
+                                designation.innerHTML = "সদস্য </br> রূপসী বাংলা ক্লাব </br> কাদিরদী,বোয়ালমারী,ফরিদপুর"; 
+                            }
+                            else if(OptionValue == "সজীব দাস")
+                            {
+                                designation.innerHTML = "সদস্য </br> রূপসী বাংলা ক্লাব </br> কাদিরদী,বোয়ালমারী,ফরিদপুর"; 
+                            }
                             else
                             {
                                 designation.innerHTML ="........."; 
