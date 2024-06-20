@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Anek Bangla' rel='stylesheet'>
+    <title>PaySlip</title>
+</head>
+<body id="bgBody">
+    <div class="container admin-section" id="adminHide">
+        <div class="header-admin">
+            <h1>টাকার রশিদ তৈরি ফর্ম</h1>
+            <hr size="10"  noshade>
+        </div>
+        <div id="adminPage">
+            <form>
+                <label for="name">প্রদানকারীর নামঃ</label>
+                <select name="name" id="nameText">
+                    <option value="nameChoose" selected="" disabled="" disabled="">নাম পছন্দ করুন</option>
+                    <option value="Chandon">চন্দন দাস</option>
+                    <option value="Monoj">মনোজ দাস</option>
+                    <option value="Millon">মিলন দাস</option>
+                    <option value="Ranoes">রনোজ দাস</option>
+                    <option value="Samir">সমীর দাস</option>
+                    <option value="Sujoy">সুজয় দাস</option>
+                    <option value="Ranjon">রঞ্জন দাস</option>
+                    <option value="Bilish">বিলাস দাস</option>
+                    <option value="Gourango">গৌরঙ্গ রায়</option>
+                    <option value="Tanmoy">তন্ময় দাস</option>
+                    <option value="Siddarto">সিদ্ধার্থ দাস</option>
+                    <option value="Uzzal">উজ্জ্বল দাস</option>
+                    <option value="Sourav">সৌরভ দাস</option>
+                    <option value="Subroto">সুব্রত দাস</option>
+                    <option value="Dipto">দীপ্ত দাস</option>
+                    <option value="Dipto">সিমান্ত সরকার</option>
+                    <option value="Dipto">সজীব দাস</option>
+                 </select>
+            </form>
+            <!-- গ্রহণকারীর বিবারণ এডমিনের -->
+            <form>
+                <label for="namereceive">গ্রহণকারীর নামঃ</label>
+                <select name="namereceive" id="tkreceiver">
+                    <option value="nameChoose" selected="" disabled="">নাম পছন্দ করুন</option>
+                    <option value="Sourav">সৌরভ দাস</option>
+                    <option value="Subroto">সুব্রত দাস</option>
+                 </select>                
+            </form>
+          
+            <!-- রো তৈরি শুরু -->
+            <div id="rowCreateSection">
+                  <label for="items">অর্থের উৎসঃ</label>
+                    <select name="items" id="itemsName" onclick="controlbtn()">
+                      <option value="noSelect" selected="" disabled="">অর্থের ধরন নির্বাচন করুন</option>
+                      <option value="MonthlyDue">মাসিক চাঁদা</option>
+                      <option value="SorosothiPuja">সরস্বতী পুজার প্রণামী</option>
+                      <option value="DurgaPuja">দূর্গা পুজার প্রণামী</option>
+                      <option value="kaliPuja">কালী পুজার প্রণামী</option>
+                      <option value="extaraMoneySorosothiPuja">সরস্বতী পূজা অতিরিক্ত অর্থ</option>
+                      <option value="extraMoneydurgaPuja">দূর্গাপূজা অতিরিক্ত অর্থ</option>
+                      <option value="extraMoneykalipuja">কালী পুজার অতিরিক্ত অর্থ</option>
+                      <option value="extraMoneybastoPuja">বাস্তপুজা অতিরিক্ত অর্থ</option>
+                      <option value="extraMoneycotroPuja">চৈত্র পূজা অতিরিক্ত অর্থ</option>
+                      <option value="extraMoneycotroPuja">জমি লিজ বাবদ</option>
+                      <option value="extraMoneycotroPuja">সদস্য ভর্তি ফর্ম অর্থ</option>
+                      <option value="extraMoneycotroPuja">ঢাকের দক্ষিণা বাবদ</option>
+                      <option value="extraMoneycotroPuja">পূজার অতিরিক্ত অর্থ</option>
+                    </select></br>
+                    <!-- মাসিক চাঁদার কত থেকে কত মাস পর্যন্ত -->
+                      <div class="monthlyvalueBackground">
+                        <div id="MonthlyDuesCondition" class="monthlydues">
+                          <label for="items_monthly_Dues_From">চাঁদা পরিশোধের শুরু মাসঃ</label>
+                          <select name="items_monthly_Dues_From" id="monthlyduesFrom">
+                            <option value="noSelect" selected="" disabled="">শুরু মাসের নাম নির্বাচন করুন</option>
+                            <option value="January">জানুয়ারী</option>
+                            <option value="February">ফেব্রয়ারী</option>
+                            <option value="March">মার্চ</option>
+                            <option value="April">এপ্রিল</option>
+                            <option value="May">মে</option>
+                            <option value="June">জুন</option>
+                            <option value="July">জুলাই</option>
+                            <option value="August">আগস্ট</option>
+                            <option value="September">সেপ্টেম্বর</option>
+                            <option value="October">অক্টোবর</option>
+                            <option value="November">নভেম্বর</option>
+                            <option value="December">ডিসেম্বর</option>
+                          </select>
+                            <span id="yearsvalue" class="yearsdata">
+                              <label for="items_monthly_Dues_From">চাঁদা পরিশোধের শুরু মাসের সালঃ</label>
+                                <select name="yearshow" id="yearshow">
+                                  <option value="noSelect" selected="" disabled="">বছর নির্বাচন করুন</option>
+                                  <option value="twozer02zero">2020</option>
+                                  <option value="twozer02one">2021</option>
+                                  <option value="twozer02two">2022</option>
+                                  <option value="twozer02three">2023</option>
+                                  <option value="twozer02four">2024</option>
+                                  <option value="twozer02five">2025</option>
+                                  <option value="twozer02six">2026</option>
+                                  <option value="twozer02seven">2027</option>
+                                  <option value="twozer02eight">2028</option>
+                                  <option value="twozer02nine">2029</option>
+                                  <option value="twozer03ten">2030</option>
+                                </select>
+                            </span>
+                              <label for="items_monthly_Dues_From">চাঁদা পরিশোধের শেষ মাসঃ</label>
+                                <select name="items_monthly_Dues_To" id="monthlydueTo">
+                                  <option value="noSelect" selected="" disabled="">শেষ মাসের নাম নির্বাচন করুন</option>
+                                  <option value="January">জানুয়ারী</option>
+                                  <option value="February">ফেব্রয়ারী</option>
+                                  <option value="March">মার্চ</option>
+                                  <option value="April">এপ্রিল</option>
+                                  <option value="May">মে</option>
+                                  <option value="June">জুন</option>
+                                  <option value="July">জুলাই</option>
+                                  <option value="August">আগস্ট</option>
+                                  <option value="Septembor">সেপ্টেম্বর</option>
+                                  <option value="Octobor">অক্টোবর</option>
+                                  <option value="November">নভেম্বর</option>
+                                  <option value="Decembor">ডিসেম্বর</option>
+                                </select>
+                              <span id="toyearsvalue" class="toyearsdata">
+                                <label for="items_monthly_Dues_From">চাঁদা পরিশোধের শেষ মাসের সালঃ</label>
+                                  <select name="toyearshow" id="toyearshow">
+                                    <option value="noSelect" selected="" disabled="">বছর নির্বাচন করুন</option>
+                                    <option value="twozer01zero">2020</option>
+                                    <option value="twozer01one">2021</option>
+                                    <option value="twozer01two">2022</option>
+                                    <option value="twozer01three">2023</option>
+                                    <option value="twozer01four">2024</option>
+                                    <option value="twozer01five">2025</option>
+                                    <option value="twozer01six">2026</option>
+                                    <option value="twozer01seven">2027</option>
+                                    <option value="twozer01eight">2028</option>
+                                    <option value="twozer01nine">2029</option>
+                                    <option value="twozer01ten">2030</option>
+                                  </select>
+                              </span>
+                      </div>
+
+                  <!-- পূজার চাঁদার বছর -->
+                          <div id="showPujadisplayYearDiv" class="showPujadisplayYearDiv monthlyvalueBackground">
+                            <label for="items_monthly_Dues_From">পূজার বছরঃ</label>
+                              <select name="pujaSelectYear" id="pujaselectYearId">
+                                <option value="noSelect" selected="" disabled="">বছর নির্বাচন করুন</option>
+                                <option value="twozerozero">2020</option>
+                                <option value="twozeroone">2021</option>
+                                <option value="twozerotwo">2022</option>
+                                <option value="twozerothree">2023</option>
+                                <option value="twozerofour">2024</option>
+                                <option value="twozerofive">2025</option>
+                                <option value="twozerosix">2026</option>
+                                <option value="twozeroseven">2027</option>
+                                <option value="twozeroeight">2028</option>
+                                <option value="twozeronine">2029</option>
+                                <option value="twozeroten">2030</option>
+                            </select>
+                            <div id="totalAmount" style="margin: 10px 0px;">
+                              <label for="totalAmount">বর্তমান মোট পাওনা অর্থের পরিমাণঃ</label></br>
+                              <input type="number" required placeholder="ইংরেজিতে লিখুন" name="amountOfMoney" id="totalTk" onfocus="this.value=''" value="অর্থের পরিমাণ লিখুন">
+                            </div>
+                          </div>
+
+                          <div class="moneyAnountValue">
+                            <label for="amountOfMoney">প্রদানকৃত অর্থের পরিমাণঃ</label>
+                            <input type="number" required placeholder="ইংরেজিতে লিখুন" name="amountOfMoney" id="amountOfmoney" onfocus="this.value=''" value="অর্থের পরিমাণ লিখুন"></br>
+                          </div>
+                        
+                          <div class="buttonPlusminues" style="margin:20px 0px;">
+                          <input id="buttonMinues" onclick="addMorerow()" type="button" value="সংযোগ করুন"></br>
+                          </div>
+
+                          <!-- রো তৈরি করার বাটন -->
+                          <p class="sourcebuttonaddLabel">যদি একাধিক উৎসের অর্থ থাকেঃ</p>
+                          <div class="buttonPlusminues">
+                            <input id="buttonPlus" onclick="createRow('table_body')" type="button" value="নতুন উৎস">
+                          </div>
+                      </div> </br>
+                              
+                                <div class="textvalueArea">
+                                  <label for="review">মন্তব্যঃ</label>
+                                  <textarea name="review" id="reviews" class="w-100" cols="45" rows="5" placeholder="কোনো বার্তা থাকলে প্রদান করুন" style="width:100%"></textarea></br>
+                                </div>
+              </div>
+
+
+        <!-- বাটন ছবি তৈরি করুন -->
+            <input type="button" value="ছবি তৈরি করুন" class="makePic" id="button" onclick="controllingMonth()"> 
+    </div>
+  </div>
+
+    <!-- ডিসপ্লে সেকশন -->
+        <div id="opacityValue">
+            <div class="wrapper" id="htmltoimage">
+                <div class="invoice_wrapper">
+                    <div class="header">
+                        <span style="display: flex;justify-content: space-around;font-size: 14px;margin:5px;">" ঈশ্বর সর্বশক্তিমান "</span>
+                        <div class="logo_invoice_wrap">
+                            <div class="logo_sec">
+                                <img src="./img/RBC Logo.jpg" alt="code logo" height="50px" width="50px">
+                                <div class="title_wrap">
+                                    <p class="title bold" style="font-size: 25px;">রূপসী বাংলা ক্লাব</p>
+                                    <p class="sub_title">কাদিরদী,বোয়ালমারী,ফরিদপুর</p>
+                                </div>
+                            </div>
+                            <div class="invoice_sec">
+                                <p class="invoice bold" style="margin-bottom: 8px;font-size: 20px;">টাকার রশিদ</p>
+                                <p class="invoice_no">
+                                    <span class="bold">#নং</span>
+                                    <span id="invoiceNum"></span>
+                                </p>
+                                <p class="date">
+                                    <!-- <span class="bold">তারিখঃ</span> -->
+                                    <span id="dateValue"></span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bill_total_wrap">
+                            <div class="bill_sec">
+                                <p class="bold">প্রদানকারীর নামঃ</p> 
+                                  <p class="bold name" id="namevalue"></p>
+                                    <p id="designation"></p>
+                            </div>
+                            <div class="total_wrap">
+                                <p id="duesName" style="color:red;font-weight: 14px;"></p>
+                                  <p class="bold price"></p>
+                            </div>
+                        </div>
+                    </div>
+<!-- টেবিল তৈরি  -->
+                    <div class="body">
+                        <table class="main_table">
+                            <thead class="table_header">
+                                <tr class="row">
+                                    <th class="col col_des">অর্থের বিবারণ</th>
+                                    <th class="col col_price">বছর</th>
+                                    <th class="col col_total">জমা টাকা</th>
+                                    <th class="col col_total">বকেয়া টাকা</th>
+                                </tr>
+                              </thead>
+                            <tbody class="table_body" id="table_body">
+                                <tr class="row">
+                                  <td class="col col_des bold" id="itemsData"></td>
+                                  <td class="col col_price" id="fromToMonth"></td>
+                                  <td class="col col_total" id="amountdisplay"></td>
+                                  <td class="col col_dues" id="duesValue"></td>
+                                </tr>
+                            </tbody>
+                          </table>
+                        </div>
+
+                        <div class="paymethod_grandtotal_wrap" style="display: flex;justify-content:space-between">
+                            <div class="paymethod_sec" style="margin:20px 10px">
+                                <p class="bold" style="margin:10px 0px">পরিশোধের মাধ্যম</p>
+                                <input type="checkbox" name="Nogodh" id="" checked>নগদ গ্রহণ &nbsp 
+                                <input type="checkbox" name="Mobile Banking" id="">মোবাইল ব্যাংকিং &nbsp
+                                <input type="checkbox" name="Bank account" id="">ব্যাংকের মাধ্যমে &nbsp
+                              </div>
+    <!-- মোট হিসব নিকাশ -->
+                          <div class="totalcalculationtk">
+                            <div class="sendMoneytotal">
+                              <label for="মোট প্রদান">মোট প্রদানঃ</label>
+                              <span id="totalSend" class="totalTkValue"></span>
+                            </div>
+                            <div class="duesMoneytotal">
+                              <label for="মোট বকেয়াঃ">মোট বকেয়াঃ</label>
+                              <span id="totalDues" class="totaDueslTkValue"></span>
+                            </div>
+                          </div>
+                        </div>
+                    <div class="paidlog">
+                        <div class="logo_sec">
+                            <img id="paidUnpaid" src="./img/paid.png" alt="code logo" height="150px" width="150px">
+                        </div>
+                        <div class="bill_total_wrap">
+                            <div class="bill_sec">
+                                <div id="subrosig">
+                                    <img id="imgSrcChange" src="./img/signature.png" alt="code logo" width="200px" sryle="margin-bottom:-100px">
+                                </div>
+                                <p class="bold name" style="text-decoration: underline;margin-bottom: 5px;font-weight: bolder;font-family: Arial, Helvetica, sans-serif;">গ্রহণকারীর স্বাক্ষর</p> 
+                                  <p class="bold name" id="namereceiver"></p>
+                                <span>
+                                   অর্থ-সম্পাদক </br>
+                                   রূপসী বাংলা ক্লাব
+                                </span>
+                            </div>
+                        </div>
+                    </div></br></br>
+                    <hr>
+                    <div class="footer" style="text-align: center;">
+                        <div class="terms">
+                            <p class="tc bold" style="text-decoration: underline;color:red;font-size: 22px;margin-bottom: 10px;">নোটিশঃ</p>
+                            <p id="textvalue" style="font-size: 18px;">**** ধন্যবাদ! ****</br><span style="color:green;font-size: 14px;">দয়া করে প্রতি মাসের ৫ তারিখের মধ্যে মাসিক চাঁদা প্রদান করুন।</span></p>
+                            <p style="margin-top:30px;font-size: 11px;text-align: center;background-color: aqua;padding:5px;">bkash Number: 01765777445 | | Email: rupashi.bangla.club@gmail.com | | KrishiBank account Number: 12323 </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>            
+</script>
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+</script>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js">
+</script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+<script src="./js/index,js"></script>
+</body>
+</html>

@@ -1,0 +1,362 @@
+function downloadimage() {
+                    var container = document.getElementById("htmltoimage");
+                    html2canvas(container, { allowTaint: true }).then(function (canvas) {
+    
+                        var link = document.createElement("a");
+                        document.body.appendChild(link);
+                        link.download = "html_image.jpg";
+                        link.href = canvas.toDataURL();
+                        link.target = '_blank';
+                        link.click();
+                        
+                    });
+                }
+                var adminHide = document.querySelector("#adminHide");
+                var button = document.querySelector("#button");
+                function controlbtn(){
+                    var itemsData = document.querySelector("#itemsData");
+                    var itemsSelect = document.querySelector("#itemsName").value;
+                    var optionvalue = document.querySelector(`#itemsName option[value=${itemsSelect}]`).innerText;
+                    itemsData.innerHTML = optionvalue;
+            
+// কন্ডিশন মাসিক চাঁদা প্রদর্শনের
+                    var FromToMonthlyDues = document.querySelector("#MonthlyDuesCondition");
+                    var showPujadisplayYearDiv = document.querySelector("#showPujadisplayYearDiv");
+                    var yearShowing = document.querySelector("#yearsvalue");
+                    var toyearShowing = document.querySelector("#toyearsvalue");
+                    var backgroundNestedOption = document.querySelector(".monthlyvalueBackground");
+            
+                    if(optionvalue == "মাসিক চাঁদা"){
+                        FromToMonthlyDues.style.display = "block";
+                        yearShowing.style.display ="block";
+                        toyearShowing.style.display ="block";
+                        backgroundNestedOption.style.display = "block";
+                        showPujadisplayYearDiv.style.display= "none";  
+                    }
+                    else if(optionvalue == "অর্থের ধরন নির্বাচন করুন")
+                    {
+                        showPujadisplayYearDiv.style.display= "none";
+                        backgroundNestedOption.style.display = "none";
+                        FromToMonthlyDues.style.display = "none";
+                    }
+                    else if(optionvalue !== "মাসিক চাঁদা")
+                    {
+                        showPujadisplayYearDiv.style.display= "block";
+                        backgroundNestedOption.style.display = "block";
+                        FromToMonthlyDues.style.display = "none";
+                    }
+                }
+//ছবি তৈরি করার অংশ
+                    function controllingMonth(){
+                        // function submitAdmin(){
+                            var designation = document.querySelector("#designation");
+                            var value = document.querySelector('#nameText').value;
+                            var OptionValue = document.querySelector(`#nameText option[value=${value}]`).innerText;
+                             if (OptionValue == "নাম পছন্দ করুন"){
+                                alert("অর্থ প্রদানকারীর নাম নির্বাচন করুন");
+                                button.disabled = true;  
+                             }
+                             else{
+                                var nametext = document.querySelector("#namevalue").innerHTML = OptionValue;
+                             }
+            
+                            if(OptionValue == "চন্দন দাস")
+                            {
+                                designation.innerHTML = "সভাপতি </br> রূপসী বাংলা ক্লাব </br> কাদিরদী,বোয়ালমারী,ফরিদপুর"; 
+                            }
+                            else if(OptionValue == "মনোজ দাস")
+                            {
+                                designation.innerHTML = "সাধারণ-সম্পাদক </br> রূপসী বাংলা ক্লাব </br> কাদিরদী,বোয়ালমারী,ফরিদপুর"; 
+                            }
+                            else if(OptionValue == "মিলন দাস")
+                            {
+                                designation.innerHTML = "সহ-সভাপতি </br> রূপসী বাংলা ক্লাব </br> কাদিরদী,বোয়ালমারী,ফরিদপুর"; 
+                            }
+                            else if(OptionValue == "রনোজ দাস")
+                            {
+                                designation.innerHTML = "উপদেষ্টা </br> রূপসী বাংলা ক্লাব </br> কাদিরদী,বোয়ালমারী,ফরিদপুর"; 
+                            }
+                            else if(OptionValue == "সমীর দাস")
+                            {
+                                designation.innerHTML = "কার্যনির্বাহী সদস্য </br> রূপসী বাংলা ক্লাব </br> কাদিরদী,বোয়ালমারী,ফরিদপুর"; 
+                            }
+                            else if(OptionValue == "সুজয় দাস")
+                            {
+                                designation.innerHTML = "কার্যনির্বাহী সদস্য </br> রূপসী বাংলা ক্লাব </br> কাদিরদী,বোয়ালমারী,ফরিদপুর"; 
+                            }
+                            else if(OptionValue == "রঞ্জন দাস")
+                            {
+                                designation.innerHTML = "কার্যনির্বাহী সদস্য </br> রূপসী বাংলা ক্লাব </br> কাদিরদী,বোয়ালমারী,ফরিদপুর"; 
+                            }
+                            else if(OptionValue == "বিলাস দাস")
+                            {
+                                designation.innerHTML = "কার্যনির্বাহী সদস্য </br> রূপসী বাংলা ক্লাব </br> কাদিরদী,বোয়ালমারী,ফরিদপুর"; 
+                            }
+                            else if(OptionValue == "গৌরঙ্গ রায়")
+                            {
+                                designation.innerHTML = "কার্যনির্বাহী সদস্য </br> রূপসী বাংলা ক্লাব </br> কাদিরদী,বোয়ালমারী,ফরিদপুর"; 
+                            }
+                            else if(OptionValue == "তন্ময় দাস")
+                            {
+                                designation.innerHTML = "ধর্মীয়-সম্পাদক </br> রূপসী বাংলা ক্লাব </br> কাদিরদী,বোয়ালমারী,ফরিদপুর"; 
+                            }
+                            else if(OptionValue == "সিদ্ধার্থ দাস")
+                            {
+                                designation.innerHTML = "কার্যনির্বাহী সদস্য </br> রূপসী বাংলা ক্লাব </br> কাদিরদী,বোয়ালমারী,ফরিদপুর"; 
+                            }
+                            else if(OptionValue == "উজ্জ্বল দাস")
+                            {
+                                designation.innerHTML = "কার্যনির্বাহী সদস্য </br> রূপসী বাংলা ক্লাব </br> কাদিরদী,বোয়ালমারী,ফরিদপুর"; 
+                            }
+                            else if(OptionValue == "সৌরভ দাস")
+                            {
+                                designation.innerHTML = "অর্থ-সম্পাদক </br> রূপসী বাংলা ক্লাব </br> কাদিরদী,বোয়ালমারী,ফরিদপুর"; 
+                            }
+                            else if(OptionValue == "সুব্রত দাস")
+                            {
+                                designation.innerHTML = "প্রচার-সম্পাদক </br> রূপসী বাংলা ক্লাব </br> কাদিরদী,বোয়ালমারী,ফরিদপুর"; 
+                            }
+                            else if(OptionValue == "দীপ্ত দাস")
+                            {
+                                designation.innerHTML = "কার্যনির্বাহী সদস্য </br> রূপসী বাংলা ক্লাব </br> কাদিরদী,বোয়ালমারী,ফরিদপুর"; 
+                            }
+                            else
+                            {
+                                designation.innerHTML ="........."; 
+                            };
+// গ্রহনকারীর বিবারণ
+                            var imgSrcChange = document.querySelector("#imgSrcChange");
+                            console.log(imgSrcChange);
+                            var value = document.querySelector('#tkreceiver').value;
+                            var receivername = document.querySelector(`#tkreceiver option[value=${value}]`).innerText;
+                            if (receivername == "নাম পছন্দ করুন"){
+                                alert("অর্থ গ্রহণকারীর নাম নির্বাচন করুন");
+                             }
+                             else if (receivername == "সুব্রত দাস"){
+                                var namereceiver = document.querySelector("#namereceiver").innerHTML = receivername;
+                             }
+                             else if (receivername == "সৌরভ দাস"){
+                                var namereceiver = document.querySelector("#namereceiver").innerHTML = receivername;
+                                imgSrcChange.src = "./img/sourov.png";
+                             }
+
+//বার্তা সেকশন
+                        var reviews = document.querySelector("#reviews").value;
+                        var textareavalue = document.querySelector("#textvalue");
+                        if(reviews != ""){
+                            textareavalue.innerHTML = reviews;
+                        }
+
+// ইনভয়েজ নাম্বার
+                        var invoiceNum = document.querySelector("#invoiceNum");
+                        invoiceNum.innerHTML= Math.floor(Math.random() * 10000000) + 1;
+            
+// তারিখের বিবারণ
+                        var datevalue = document.querySelector("#dateValue");
+                        var now = new Date(); var dayNames = new Array("রবিবার","সোমবার","মঙ্গলবার","বুধবার","বৃহস্পতিবার","শুক্রবার","শনিবার"); var monNames = new Array("জানুয়ারি","ফেব্রুয়ারী","মার্চ","এপ্রিল","মে","জুন","জুলাই","আগস্ট","সেপ্টেম্বর","অক্টোবর","নভেম্বর","ডিসেম্বর");
+                        datevalue.innerHTML = (`${now.getDate()} , ${monNames[now.getMonth()]} ${now.getFullYear()} , ${dayNames[now.getDay()]}`);
+                        
+                        
+                        var opacityValue = document.querySelector("#opacityValue");
+                        opacityValue.style.display="block";
+                        downloadimage();
+                        addMorerow();
+                        adminHide.style.display = "none";
+                    }
+            
+// নতুন রো সংযোগ
+            var buttonPlus = document.querySelector("#buttonPlus");
+            var buttonMinues  = document.querySelector("#buttonMinues");             
+            function createRow(table_id){
+                var table_body = document.getElementById(table_id);
+                var table_tr = table_body.firstElementChild;
+                var row_clone = table_tr.cloneNode(true);
+                table_body.appendChild(row_clone);
+            }
+
+//ইনপুট ভ্যালু রিসেট
+            function cleatValue(){
+                totalTk.value = '';
+                amountOfmoney.value = '';
+            }
+
+//অর্থের উৎসের বিবারণ এবং নতুন রো সৃষ্টির ফাংশন
+            var buttonMinues = document.querySelector("#buttonMinues");
+            function addMorerow(){
+                var itemsData = document.querySelector("#itemsData");
+                var itemsSelect = document.querySelector("#itemsName").value;
+                var optionvalue = document.querySelector(`#itemsName option[value=${itemsSelect}]`).innerText;
+                itemsData.innerHTML = optionvalue;
+                var fromToMonth = document.querySelector("#fromToMonth");
+                if(optionvalue === "মাসিক চাঁদা")
+                {
+                    var FromMonth = document.querySelector("#monthlyduesFrom").value;
+                    var FromMonthvalue = document.querySelector(`#monthlyduesFrom option[value=${FromMonth}]`).innerText;
+                    var toMonth = document.querySelector("#monthlydueTo").value;
+                    var toMonthvalue = document.querySelector(`#monthlydueTo option[value=${toMonth}]`).innerText;
+                    
+                    var yearshow = document.querySelector("#yearshow").value;
+                    var showyear = document.querySelector(`#yearshow option[value=${yearshow}]`).innerText;
+                    var toyearshow = document.querySelector("#toyearshow").value;
+                    var toshowyear = document.querySelector(`#toyearshow option[value=${toyearshow}]`).innerText; 
+                    fromToMonth.innerHTML = `${FromMonthvalue} ${showyear} থেকে ${toMonthvalue} ${toshowyear} পর্যন্ত`;
+                }
+                else if(optionvalue !== "মাসিক চাঁদা")
+                {
+// পুজার চাঁদা বছর
+                    var pujaselectYearName = document.querySelector("#pujaselectYearId").value;
+                    var pujaselectYearNameValue = document.querySelector(`#pujaselectYearId option[value=${pujaselectYearName}]`).innerText;
+                    fromToMonth.innerHTML = pujaselectYearNameValue;
+                }   
+                    
+//অর্থের পরিমাণ প্রদানকৃত
+                    var amount = Number(document.querySelector("#amountOfmoney").value);
+                    var amountdisplay = document.querySelector("#amountdisplay");
+                    if(amount == ""){
+                        alert("অর্থের পরিমান লিখুন মাসিক চাঁদার");
+                    }
+                     amountdisplay.innerHTML = `${amount}`;                  
+                    
+//বকেয়ার হিসাবনিকাশ
+                var monthNumMatchValue,monthDifference,date1,date2,monthNum,fullYears,monthValue,currentYears;
+                var currentdate = new Date();
+                currentMonth = currentdate.getMonth()+1;
+                currentYears = currentdate.getFullYear();
+    
+                function date1Calculation()
+                {
+                    if(toMonthvalue == "জানুয়ারী"){
+                        monthNum=1;
+                        date1 = `"${toshowyear}-${monthNum}-01"`;
+                    }
+                    else if(toMonthvalue == "ফেব্রয়ারী"){
+                        monthNum=2;
+                        date1 = `"${toshowyear}-${monthNum}-01"`;
+                    }
+                    else if(toMonthvalue == "মার্চ"){
+                        monthNum=3;
+                        date1 = `"${toshowyear}-${monthNum}-01"`;
+                    }
+                    else if(toMonthvalue == "এপ্রিল"){
+                        monthNum=4;
+                        date1 = `"${toshowyear}-${monthNum}-01"`;
+                    }
+                    else if(toMonthvalue == "মে"){
+                        monthNum=5;
+                        date1 = `"${toshowyear}-${monthNum}-01"`;
+                    }
+                    else if(toMonthvalue == "জুন"){
+                        monthNum=6;
+                        date1 = `"${toshowyear}-${monthNum}-01"`;
+                    }
+                    else if(toMonthvalue == "জুলাই"){
+                        monthNum=7;
+                        date1 = `"${toshowyear}-${monthNum}-01"`;
+                    }
+                    else if(toMonthvalue == "আগস্ট"){
+                        monthNum=8;
+                        date1 = `"${toshowyear}-${monthNum}-01"`;
+                    }
+                    else if(toMonthvalue == "সেপ্টেম্বর"){
+                        monthNum=9;
+                        date1 = `"${toshowyear}-${monthNum}-01"`;
+                    }
+                    else if(toMonthvalue =="অক্টোবর"){
+                        monthNum=10;
+                        date1 = `"${toshowyear}-${monthNum}-01"`;
+                    }
+                    else if(toMonthvalue =="নভেম্বর"){
+                        monthNum=11;
+                        date1 = `"${toshowyear}-${monthNum}-01"`;
+                    }
+                    else if(toMonthvalue == "ডিসেম্বর"){
+                        monthNum=12;
+                        date1 = `"${toshowyear}-${monthNum}-01"`;
+                    }
+                 return date1;
+                }
+                date1Calculation();
+                date1 = new Date(`${date1}`);
+                monthValue = date1.getMonth();
+                monthValue +=1;
+                fullYears = date1.getFullYear();
+                var duesValue =(12*(currentYears - fullYears))-monthValue+currentMonth;
+                duesValue *=50;
+
+
+// অন্যান্য বকেয়ার পরিমান হিসাব
+                var duesName = document.querySelector("#duesName");
+                var paidUnpaid = document.querySelector("#paidUnpaid");
+                var totalTk = document.querySelector("#totalTk").value;
+                if (optionvalue !== "মাসিক চাঁদা")
+                {
+                    duesValue = totalTk - amount;
+                    if(duesValue > 0)
+                    {
+                        duesName.innerHTML= "দ্রুত মন্দির উন্নায়নের বকেয়া প্রদান করুন";
+                        paidUnpaid.src = "./img/unpaid.png";   
+                    }
+                    else if(duesValue == 0)
+                    {
+                        duesName.innerHTML= "পরিশোধ"; 
+                        paidUnpaid.src = "./img/paid.png";
+                    }
+                    else if(duesValue < 0)
+                    {
+                        var otherTKValues =(-1*duesValue);
+                        duesName.innerHTML= `মন্দির উন্নায়নের অনুদান হিসাবে ${otherTKValues} টাকা জমা হয়েছে`;
+                        paidUnpaid.src = "./img/paid.png";   
+                    }
+                }
+                document.querySelector("#duesValue").innerHTML = `${duesValue}`;
+                if(optionvalue === "মাসিক চাঁদা")
+                {
+                    if(duesValue < 0)
+                    {
+                        var duesmonNum =((-1*duesValue)/50);
+                        duesName.innerHTML= `মাসিক চাঁদা ${duesmonNum} মাস অগ্রীম প্রদান`; 
+                    }
+                    else if(duesValue == 0){
+                        duesName.innerHTML= "মাসিক চাঁদা সম্পূর্ণ পরিশোধ"; 
+                    }
+                    else if(duesValue > 0){
+                        var duesmonNum = duesValue/50;
+                        duesName.innerHTML= `মাসিক চাঁদা ${duesmonNum} মাস বকেয়া`;
+                        paidUnpaid.src = "./img/unpaid.png";
+                    }
+                }
+                sendTkCal();
+                duesTkCal();
+                cleatValue()
+        }
+//প্রাদানকৃত টাকার হিসাব
+function sendTkCal(){
+    var sumvalueSendTk = 0;
+    var table = document.getElementById("table_body");
+    for(let i=0;i<table.rows.length;i++){
+        sumvalueSendTk = sumvalueSendTk + Number(table.rows[i].cells[2].innerText);
+    }
+    var totalSend = document.querySelector("#totalSend");
+    totalSend.innerHTML = `${sumvalueSendTk}`;
+}
+
+
+// বকেয়া টাকার হিসাব
+var sumvalueduesTk = 0,columValue;
+var table = document.getElementById("table_body");
+function duesTkCal(){
+    for(let i=0;i<table.rows.length;i++){
+         columValue = Number(table.rows[i].cells[3].innerText);
+            if(columValue < 0)
+                {
+                    columValue = 0;
+                    sumvalueduesTk = sumvalueduesTk + columValue;
+                }
+            else{
+                sumvalueduesTk = sumvalueduesTk + Number(table.rows[i].cells[3].innerText); 
+            }
+    }
+
+    var totalDues = document.querySelector("#totalDues");
+    totalDues.innerHTML = `${sumvalueduesTk}`;
+}
