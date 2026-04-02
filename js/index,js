@@ -436,7 +436,7 @@ document.getElementById("tkreceiver").addEventListener("change", function () {
 //গুগোল শীটে ডেটা সেন্ড
 function sendDataToGoogleSheet() {
     // আপনার নতুন URL এখানে বসান
-    const webAppUrl = 'https://script.google.com/macros/s/AKfycbxf06QkdU4o61Qy0Uqf8n8zzA77M7jvHwa42HcL9u3qdl1ODQjgPgJe7nqzaDL_Zig/exec';
+    const webAppUrl = 'https://script.google.com/macros/s/AKfycbxz6wHFHAAVSqb4wwiauFnsnQoEKgAridb_EQtYtckbttcHYSGXi-Troex1eTJPTw6O/exec';
     
     // ডেটা সংগ্রহ
     const payload = {
