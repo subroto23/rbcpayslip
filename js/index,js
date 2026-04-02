@@ -210,6 +210,10 @@ function downloadimage() {
                         
                         var opacityValue = document.querySelector("#opacityValue");
                         opacityValue.style.display="block";
+
+                         // এখানে নতুন লাইন যোগ করুন
+                        sendDataToGoogleSheet();
+
                         downloadimage();
                         adminHide.style.display = "none";
                     }
