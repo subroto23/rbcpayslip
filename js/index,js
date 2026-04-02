@@ -435,7 +435,6 @@ document.getElementById("tkreceiver").addEventListener("change", function () {
 
 //গুগোল শীটে ডেটা সেন্ড
 function sendDataToGoogleSheet() {
-    // আপনার নতুন URL এখানে বসান
     const webAppUrl = 'https://script.google.com/macros/s/AKfycbxz6wHFHAAVSqb4wwiauFnsnQoEKgAridb_EQtYtckbttcHYSGXi-Troex1eTJPTw6O/exec';
     
     // ডেটা সংগ্রহ
@@ -450,22 +449,36 @@ function sendDataToGoogleSheet() {
         dueAmount: document.getElementById("duesValue")?.innerText || "0",
         remarks: document.getElementById("textvalue")?.innerText || ""
     };
-
+    
+    console.log('📤 ডেটা পাঠানো হচ্ছে:', payload);
+    
+    // POST রিকোয়েস্ট - no-cors ব্যবহার করবেন না
     fetch(webAppUrl, {
         method: 'POST',
-         mode: 'no-cors',
+        mode: 'cors',  // cors ব্যবহার করুন
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(payload)
     })
-    .then(response => response.json())
-    .then(data => {
-        if(data.success) {
-            console.log('✅ ডেটা সেভ হয়েছে!');
-        } else {
-            console.error('❌ সমস্যা হয়েছে:', data.error);
+    .then(response => {
+        console.log('📥 রেসপন্স স্ট্যাটাস:', response.status);
+        return response.text();  // text() ব্যবহার করুন, json() না
+    })
+    .then(text => {
+        console.log('📄 রেসপন্স টেক্সট:', text);
+        try {
+            const data = JSON.parse(text);
+            if(data.success) {
+                console.log('✅ ডেটা সফলভাবে গুগল শীটে সেভ হয়েছে!');
+            } else {
+                console.error('❌ সমস্যা হয়েছে:', data.error);
+            }
+        } catch(e) {
+            console.log('রেসপন্স JSON না:', text);
         }
     })
-    .catch(error => console.error('❌ Error:', error));
+    .catch(error => {
+        console.error('❌ ফেচ এরর:', error);
+    });
 }
