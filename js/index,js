@@ -210,10 +210,6 @@ function downloadimage() {
                         
                         var opacityValue = document.querySelector("#opacityValue");
                         opacityValue.style.display="block";
-
-                         // এখানে নতুন লাইন যোগ করুন
-                        sendDataToGoogleSheet();
-
                         downloadimage();
                         adminHide.style.display = "none";
                     }
@@ -431,73 +427,3 @@ document.getElementById("tkreceiver").addEventListener("change", function () {
         mobile.checked = false;
     }
 });
-
-
-//গুগোল শীটে ডেটা সেন্ড
-//গুগোল শীটে ডেটা সেন্ড - CORS ফিক্স সহ
-function sendDataToGoogleSheet() {
-    // আপনার Apps Script ওয়েব অ্যাপ URL
-    const webAppUrl = 'https://script.google.com/macros/s/AKfycbwxKh1L6SOisbgnh6khaE6tG21CqicJnDAIWnYc_oDA0GaOldgeEyLaG0LDswAeo2UM/exec';
-    
-    // ডেটা সংগ্রহ
-    const payload = {
-        invoiceNo: document.getElementById("invoiceNum")?.innerText || "N/A",
-        giverName: document.getElementById("namevalue")?.innerText || "N/A",
-        giverDesignation: document.getElementById("designation")?.innerText || "N/A",
-        receiverName: document.getElementById("namereceiver")?.innerText || "N/A",
-        source: document.getElementById("itemsData")?.innerText || "N/A",
-        yearPeriod: document.getElementById("fromToMonth")?.innerText || "N/A",
-        amountPaid: document.getElementById("amountdisplay")?.innerText || "0",
-        dueAmount: document.getElementById("duesValue")?.innerText || "0",
-        remarks: document.getElementById("textvalue")?.innerText || ""
-    };
-    
-    console.log('📤 ডেটা পাঠানো হচ্ছে:', payload);
-    
-    // ⭐ গুরুত্বপূর্ণ: mode: 'no-cors' ব্যবহার করুন
-    fetch(webAppUrl, {
-        method: 'POST',
-        mode: 'no-cors',  // এই লাইনটি是关键
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload)
-    })
-    .then(() => {
-        console.log('✅ ডেটা পাঠানোর রিকোয়েস্ট সফল হয়েছে!');
-        console.log('⚠️ দয়া করে গুগল শীট চেক করে দেখুন ডেটা এসেছে কিনা');
-    })
-    .catch(error => {
-        console.error('❌ ফেচ এরর:', error);
-    });
-}
-
-// ভেরিফিকেশন তথ্য রশিদে দেখানোর ফাংশন
-function displayVerificationInfo(data) {
-    // ভেরিফিকেশন কোড দেখানোর জন্য একটি ডিভ তৈরি করুন
-    let verifyDiv = document.getElementById('verificationSection');
-    if (!verifyDiv) {
-        verifyDiv = document.createElement('div');
-        verifyDiv.id = 'verificationSection';
-        verifyDiv.style.cssText = 'margin: 20px; padding: 15px; background: #f0f0f0; border-radius: 10px; text-align: center;';
-        
-        // রশিদের উপযুক্ত জায়গায় যোগ করুন (footer এর আগে)
-        const footer = document.querySelector('.footer');
-        if (footer) {
-            footer.parentNode.insertBefore(verifyDiv, footer);
-        }
-    }
-    
-    verifyDiv.innerHTML = `
-        <div style="border: 2px solid #0e2a47; border-radius: 10px; padding: 15px;">
-            <h3 style="color: #0e2a47; margin-bottom: 10px;">🔐 ভেরিফিকেশন তথ্য</h3>
-            <p><strong>ভেরিফিকেশন কোড:</strong> <span style="font-size: 18px; font-weight: bold; color: green;">${data.verificationCode}</span></p>
-            <p><strong>QR Code স্ক্যান করুন:</strong></p>
-            <img src="${data.qrCodeUrl}" alt="QR Code" style="width: 150px; height: 150px; margin: 10px auto;">
-            <p style="font-size: 12px; color: #666;">এই QR Code স্ক্যান করলে স্লিপ ভেরিফাই হবে</p>
-            <p style="font-size: 12px; margin-top: 10px;">
-                <a href="${data.verifyUrl}" target="_blank" style="color: #0e2a47;">ভেরিফিকেশন লিংক</a>
-            </p>
-        </div>
-    `;
-}
