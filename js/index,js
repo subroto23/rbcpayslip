@@ -140,24 +140,56 @@ function downloadimage() {
                                 designation.innerHTML ="........."; 
                             };
 // গ্রহনকারীর বিবারণ
+                           // var imgSrcChange = document.querySelector("#imgSrcChange");
+                          //var value = document.querySelector('#tkreceiver').value;
+                           // var receivername = document.querySelector(`#tkreceiver option[value=${value}]`).innerText;
+                           // if (receivername == "নাম পছন্দ করুন"){
+                               // alert("অর্থ গ্রহণকারীর নাম নির্বাচন করুন");  
+                             //}
+                            // else if (receivername == "সুব্রত দাস"){
+                                //var namereceiver = document.querySelector("#namereceiver").innerHTML = receivername;
+                            // }
+                             //else if (receivername == "সৌরভ দাস"){
+                               // var namereceiver = document.querySelector("#namereceiver").innerHTML = receivername;
+                                //imgSrcChange.src = "./img/sourov.png";
+                            // }
+                            //else if (receivername == "সিমান্ত সরকার"){
+                                //var namereceiver = document.querySelector("#namereceiver").innerHTML = receivername;
+                                //imgSrcChange.src = "./img/semanto.png";
+                             //}
+
+// গ্রহনকারীর বিবারণ
                             var imgSrcChange = document.querySelector("#imgSrcChange");
-                            console.log(imgSrcChange);
                             var value = document.querySelector('#tkreceiver').value;
                             var receivername = document.querySelector(`#tkreceiver option[value=${value}]`).innerText;
+                            
                             if (receivername == "নাম পছন্দ করুন"){
                                 alert("অর্থ গ্রহণকারীর নাম নির্বাচন করুন");  
-                             }
-                             else if (receivername == "সুব্রত দাস"){
+                            }
+                            else {
                                 var namereceiver = document.querySelector("#namereceiver").innerHTML = receivername;
-                             }
-                             else if (receivername == "সৌরভ দাস"){
-                                var namereceiver = document.querySelector("#namereceiver").innerHTML = receivername;
-                                imgSrcChange.src = "./img/sourov.png";
-                             }
-                            else if (receivername == "সিমান্ত সরকার"){
-                                var namereceiver = document.querySelector("#namereceiver").innerHTML = receivername;
-                                imgSrcChange.src = "./img/semanto.png";
-                             }
+                                
+                                // নাম অনুযায়ী পদবি নির্ধারণ
+                                var receiverDesignationSpan = document.querySelector("#namereceiver").nextElementSibling;
+                                
+                                if (receivername == "সৌরভ দাস"){
+                                    imgSrcChange.src = "./img/sourov.png";
+                                    if(receiverDesignationSpan) receiverDesignationSpan.innerHTML = "অর্থ-সম্পাদক";
+                                }
+                                else if (receivername == "সিমান্ত সরকার"){
+                                    imgSrcChange.src = "./img/semanto.png";
+                                    if(receiverDesignationSpan) receiverDesignationSpan.innerHTML = "সদস্য";
+                                }
+                                else if (receivername == "সুব্রত দাস"){
+                                    if(receiverDesignationSpan) receiverDesignationSpan.innerHTML = "প্রচার-সম্পাদক";
+                                }
+                                else if (receivername == "গৌরঙ্গ রায়"){
+                                    if(receiverDesignationSpan) receiverDesignationSpan.innerHTML = "কার্যনির্বাহী সদস্য";
+                                }
+                                else {
+                                    if(receiverDesignationSpan) receiverDesignationSpan.innerHTML = "সদস্য";
+                                }
+                            }
 
 //বার্তা সেকশন
                         var reviews = document.querySelector("#reviews").value;
