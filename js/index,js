@@ -380,12 +380,14 @@ function duesTkCal(){
 
 //অর্থ প্রদানের টাইপ
 document.getElementById("tkreceiver").addEventListener("change", function () {
-    var receiver = this.options[this.selectedIndex].text;
+    var receiverText = this.options[this.selectedIndex].text; // Gets the displayed text
+    var receiverValue = this.value; // Gets the option value
 
     var cash = document.getElementById("cash");
     var mobile = document.getElementById("mobileBanking");
 
-    if (receiver === "সুব্রত দাস") {
+    // Check by the visible text instead of the value
+    if (receiverText === "সুব্রত দাস") {
         mobile.checked = true;
         cash.checked = false;
     } else {
