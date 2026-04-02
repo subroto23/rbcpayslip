@@ -434,8 +434,9 @@ document.getElementById("tkreceiver").addEventListener("change", function () {
 
 
 //গুগোল শীটে ডেটা সেন্ড
+//গুগোল শীটে ডেটা সেন্ড - CORS ফিক্স সহ
 function sendDataToGoogleSheet() {
-    //আপনার Apps Script ওয়েব অ্যাপ URL এখানে বসান
+    // আপনার Apps Script ওয়েব অ্যাপ URL
     const webAppUrl = 'https://script.google.com/macros/s/AKfycbwxKh1L6SOisbgnh6khaE6tG21CqicJnDAIWnYc_oDA0GaOldgeEyLaG0LDswAeo2UM/exec';
     
     // ডেটা সংগ্রহ
@@ -453,26 +454,18 @@ function sendDataToGoogleSheet() {
     
     console.log('📤 ডেটা পাঠানো হচ্ছে:', payload);
     
+    // ⭐ গুরুত্বপূর্ণ: mode: 'no-cors' ব্যবহার করুন
     fetch(webAppUrl, {
         method: 'POST',
-        mode: 'cors',
+        mode: 'no-cors',  // এই লাইনটি是关键
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(payload)
     })
-    .then(response => response.json())
-    .then(data => {
-        if(data.success) {
-            console.log('✅ ডেটা সফলভাবে সেভ হয়েছে!');
-            console.log('🔑 ভেরিফিকেশন কোড:', data.verificationCode);
-            console.log('📱 QR Code URL:', data.qrCodeUrl);
-            
-            // রশিদে ভেরিফিকেশন কোড ও QR Code দেখান
-            displayVerificationInfo(data);
-        } else {
-            console.error('❌ সমস্যা হয়েছে:', data.error);
-        }
+    .then(() => {
+        console.log('✅ ডেটা পাঠানোর রিকোয়েস্ট সফল হয়েছে!');
+        console.log('⚠️ দয়া করে গুগল শীট চেক করে দেখুন ডেটা এসেছে কিনা');
     })
     .catch(error => {
         console.error('❌ ফেচ এরর:', error);
