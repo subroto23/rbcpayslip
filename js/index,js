@@ -377,3 +377,19 @@ function duesTkCal(){
     var totalDues = document.querySelector("#totalDues");
     totalDues.innerHTML = `${sumvalueduesTk}`;
 }
+
+//অর্থ প্রদানের টাইপ
+document.getElementById("tkreceiver").addEventListener("change", function () {
+    var receiver = this.options[this.selectedIndex].text;
+
+    var cash = document.getElementById("cash");
+    var mobile = document.getElementById("mobileBanking");
+
+    if (receiver === "সুব্রত দাস") {
+        mobile.checked = true;
+        cash.checked = false;
+    } else {
+        cash.checked = true;
+        mobile.checked = false;
+    }
+});
