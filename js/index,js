@@ -453,7 +453,7 @@ function sendDataToGoogleSheet() {
 
     fetch(webAppUrl, {
         method: 'POST',
-        mode: 'cors',  // cors ব্যবহার করুন
+         mode: 'no-cors',
         headers: {
             'Content-Type': 'application/json',
         },
