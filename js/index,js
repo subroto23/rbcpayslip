@@ -435,7 +435,8 @@ document.getElementById("tkreceiver").addEventListener("change", function () {
 
 //গুগোল শীটে ডেটা সেন্ড
 function sendDataToGoogleSheet() {
-    const webAppUrl = 'https://script.google.com/macros/s/AKfycbxz6wHFHAAVSqb4wwiauFnsnQoEKgAridb_EQtYtckbttcHYSGXi-Troex1eTJPTw6O/exec';
+    //আপনার Apps Script ওয়েব অ্যাপ URL এখানে বসান
+    const webAppUrl = 'https://script.google.com/macros/s/AKfycbwxKh1L6SOisbgnh6khaE6tG21CqicJnDAIWnYc_oDA0GaOldgeEyLaG0LDswAeo2UM/exec';
     
     // ডেটা সংগ্রহ
     const payload = {
@@ -452,33 +453,58 @@ function sendDataToGoogleSheet() {
     
     console.log('📤 ডেটা পাঠানো হচ্ছে:', payload);
     
-    // POST রিকোয়েস্ট - no-cors ব্যবহার করবেন না
     fetch(webAppUrl, {
         method: 'POST',
-        mode: 'cors',  // cors ব্যবহার করুন
+        mode: 'cors',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(payload)
     })
-    .then(response => {
-        console.log('📥 রেসপন্স স্ট্যাটাস:', response.status);
-        return response.text();  // text() ব্যবহার করুন, json() না
-    })
-    .then(text => {
-        console.log('📄 রেসপন্স টেক্সট:', text);
-        try {
-            const data = JSON.parse(text);
-            if(data.success) {
-                console.log('✅ ডেটা সফলভাবে গুগল শীটে সেভ হয়েছে!');
-            } else {
-                console.error('❌ সমস্যা হয়েছে:', data.error);
-            }
-        } catch(e) {
-            console.log('রেসপন্স JSON না:', text);
+    .then(response => response.json())
+    .then(data => {
+        if(data.success) {
+            console.log('✅ ডেটা সফলভাবে সেভ হয়েছে!');
+            console.log('🔑 ভেরিফিকেশন কোড:', data.verificationCode);
+            console.log('📱 QR Code URL:', data.qrCodeUrl);
+            
+            // রশিদে ভেরিফিকেশন কোড ও QR Code দেখান
+            displayVerificationInfo(data);
+        } else {
+            console.error('❌ সমস্যা হয়েছে:', data.error);
         }
     })
     .catch(error => {
         console.error('❌ ফেচ এরর:', error);
     });
+}
+
+// ভেরিফিকেশন তথ্য রশিদে দেখানোর ফাংশন
+function displayVerificationInfo(data) {
+    // ভেরিফিকেশন কোড দেখানোর জন্য একটি ডিভ তৈরি করুন
+    let verifyDiv = document.getElementById('verificationSection');
+    if (!verifyDiv) {
+        verifyDiv = document.createElement('div');
+        verifyDiv.id = 'verificationSection';
+        verifyDiv.style.cssText = 'margin: 20px; padding: 15px; background: #f0f0f0; border-radius: 10px; text-align: center;';
+        
+        // রশিদের উপযুক্ত জায়গায় যোগ করুন (footer এর আগে)
+        const footer = document.querySelector('.footer');
+        if (footer) {
+            footer.parentNode.insertBefore(verifyDiv, footer);
+        }
+    }
+    
+    verifyDiv.innerHTML = `
+        <div style="border: 2px solid #0e2a47; border-radius: 10px; padding: 15px;">
+            <h3 style="color: #0e2a47; margin-bottom: 10px;">🔐 ভেরিফিকেশন তথ্য</h3>
+            <p><strong>ভেরিফিকেশন কোড:</strong> <span style="font-size: 18px; font-weight: bold; color: green;">${data.verificationCode}</span></p>
+            <p><strong>QR Code স্ক্যান করুন:</strong></p>
+            <img src="${data.qrCodeUrl}" alt="QR Code" style="width: 150px; height: 150px; margin: 10px auto;">
+            <p style="font-size: 12px; color: #666;">এই QR Code স্ক্যান করলে স্লিপ ভেরিফাই হবে</p>
+            <p style="font-size: 12px; margin-top: 10px;">
+                <a href="${data.verifyUrl}" target="_blank" style="color: #0e2a47;">ভেরিফিকেশন লিংক</a>
+            </p>
+        </div>
+    `;
 }
