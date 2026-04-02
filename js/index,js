@@ -427,3 +427,41 @@ document.getElementById("tkreceiver").addEventListener("change", function () {
         mobile.checked = false;
     }
 });
+
+
+//গুগোল শীটে ডেটা সেন্ড
+function sendDataToGoogleSheet() {
+    // আপনার নতুন URL এখানে বসান
+    const webAppUrl = 'https://script.google.com/macros/s/AKfycbxf06QkdU4o61Qy0Uqf8n8zzA77M7jvHwa42HcL9u3qdl1ODQjgPgJe7nqzaDL_Zig/exec';
+    
+    // ডেটা সংগ্রহ
+    const payload = {
+        invoiceNo: document.getElementById("invoiceNum")?.innerText || "N/A",
+        giverName: document.getElementById("namevalue")?.innerText || "N/A",
+        giverDesignation: document.getElementById("designation")?.innerText || "N/A",
+        receiverName: document.getElementById("namereceiver")?.innerText || "N/A",
+        source: document.getElementById("itemsData")?.innerText || "N/A",
+        yearPeriod: document.getElementById("fromToMonth")?.innerText || "N/A",
+        amountPaid: document.getElementById("amountdisplay")?.innerText || "0",
+        dueAmount: document.getElementById("duesValue")?.innerText || "0",
+        remarks: document.getElementById("textvalue")?.innerText || ""
+    };
+
+    fetch(webAppUrl, {
+        method: 'POST',
+        mode: 'cors',  // cors ব্যবহার করুন
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if(data.success) {
+            console.log('✅ ডেটা সেভ হয়েছে!');
+        } else {
+            console.error('❌ সমস্যা হয়েছে:', data.error);
+        }
+    })
+    .catch(error => console.error('❌ Error:', error));
+}
