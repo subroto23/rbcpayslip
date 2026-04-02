@@ -154,6 +154,10 @@ function downloadimage() {
                                 var namereceiver = document.querySelector("#namereceiver").innerHTML = receivername;
                                 imgSrcChange.src = "./img/sourov.png";
                              }
+                            else if (receivername == "সিমান্ত সরকার"){
+                                var namereceiver = document.querySelector("#namereceiver").innerHTML = receivername;
+                                imgSrcChange.src = "./img/semanto.png";
+                             }
 
 //বার্তা সেকশন
                         var reviews = document.querySelector("#reviews").value;
